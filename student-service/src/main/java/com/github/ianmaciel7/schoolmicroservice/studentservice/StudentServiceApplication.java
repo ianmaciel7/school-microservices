@@ -1,5 +1,11 @@
 package com.github.ianmaciel7.schoolmicroservice.studentservice;
 
+import java.util.Arrays;
+import java.util.List;
+
+import com.github.ianmaciel7.schoolmicroservice.studentservice.models.Parent;
+import com.github.ianmaciel7.schoolmicroservice.studentservice.models.Student;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -20,9 +26,10 @@ public class StudentServiceApplication {
 	class StudentController {
 
 		@GetMapping("/list")
-		public String list() {
-			return "test";
+		public List<Student> list() {
+			Parent parent = new Parent(1, "Marcos", "Silva Pereira", "71999823782");
+			Student student = new Student(1, "Leonardo", "Silva Pereira", Arrays.asList(parent));
+			return Arrays.asList(student);
 		}
 	}
-
 }
