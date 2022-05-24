@@ -16,11 +16,11 @@ public class StudentServiceApplication {
 	}
 
 	@RestController
-	@RequestMapping("/example")
-	class ExampleController {
+	@RequestMapping("/students")
+	class StudentController {
 
-		@GetMapping("/test")
-		public String test() {
+		@GetMapping("/list")
+		public String list() {
 			return "test";
 		}
 	}

@@ -14,7 +14,7 @@ public class ApiGatewayApplication {
 	@Bean
 	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 		return builder.routes().route(p -> p
-				.path("/example/**")
+				.path("/students/**")
 				.uri("http://localhost:2222/"))
 				.build();
 	}
