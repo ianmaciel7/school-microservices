@@ -1,25 +1,33 @@
 package com.github.ianmaciel7.schoolmicroservice.studentservice.models;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Student {
-    private int studentId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer studentId;
     private String firstName;
     private String lastName;
-    private List<Parent> parents;
 
-    public Student(int studentId, String firstName, String lastName, List<Parent> parents) {
+    public Student() {
+    }
+
+    public Student(Integer studentId, String firstName, String lastName) {
         this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.parents = parents;
     }
 
-    public int getStudentId() {
+    public Integer getStudentId() {
         return this.studentId;
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(Integer studentId) {
         this.studentId = studentId;
     }
 
@@ -37,13 +45,5 @@ public class Student {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public List<Parent> getParents() {
-        return this.parents;
-    }
-
-    public void setParents(List<Parent> parents) {
-        this.parents = parents;
     }
 }
